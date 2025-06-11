@@ -1,7 +1,8 @@
-package src.Models;
+
+package models;
 
 public class LinkedListGeneric<T> {
-    private NodeGeneric<T> head;
+    private Node<T> head;
     private int size;
 
     public LinkedListGeneric() {
@@ -10,11 +11,11 @@ public class LinkedListGeneric<T> {
     }
 
     public void appendToTail(T value) {
-        NodeGeneric<T> newNode = new NodeGeneric<>(value);
+        Node<T> newNode = new Node<>(value);
         if (head == null) {
             head = newNode;
         } else {
-            NodeGeneric<T> aux = head;
+            Node<T> aux = head;
             while (aux.getNext() != null) {
                 aux = aux.getNext();
             }
@@ -24,7 +25,7 @@ public class LinkedListGeneric<T> {
     }
 
     public T findByValue(T value) {
-        NodeGeneric<T> aux = head;
+        Node<T> aux = head;
         while (aux != null) {
             if (aux.getValue().equals(value)) {
                 return aux.getValue();
@@ -46,8 +47,8 @@ public class LinkedListGeneric<T> {
             return deletedValue;
         }
 
-        NodeGeneric<T> aux = head;
-        NodeGeneric<T> aux2 = null;
+        Node<T> aux = head;
+        Node<T> aux2 = null;
 
         while (aux != null) {
             if (aux.getValue().equals(value)) {
@@ -62,7 +63,7 @@ public class LinkedListGeneric<T> {
     }
 
     public void print() {
-        NodeGeneric<T> actual = head;
+        Node<T> actual = head;
         System.out.println("LinkedList:");
         while (actual != null) {
             System.out.print(actual.getValue() + " : ");
@@ -71,11 +72,11 @@ public class LinkedListGeneric<T> {
         System.out.println("null");
     }
 
-    public NodeGeneric<T> getHead() {
+    public Node<T> getHead() {
         return head;
     }
 
-    public void setHead(NodeGeneric<T> head) {
+    public void setHead(Node<T> head) {
         this.head = head;
     }
 
